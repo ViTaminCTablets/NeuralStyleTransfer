@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Image Style Transfer</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,300&display=swap" rel="stylesheet">
+	<style>
+		h2 {
+			font-family: Arial, sans-serif;
+			color: #333;
+		}
+		
+		label {
+			margin-bottom: 10px;
+			display: block;
+		}
+		
+		input[type="file"] {
+			margin-bottom: 20px;
+		}
+		
+		select {
+			margin-bottom: 20px;
+		}
+		
+		input[type="submit"] {
+			background-color: #ff0000;
+			color: #fff;
+			padding: 10px;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+		
+		input[type="submit"]:hover {
+			background-color: #ff0000;
+		}
+		
+		img {
+			margin-top: 20px;
+		}
+		</style>
+</head>
+<body>
+	<div class="container">
+		<h1>Image Style Transfer</h1>
+
+		<p >欢迎使用图像风格迁移工具！</p> 
+		<p>只需简单的操作，便能让大师的艺术风格融入你的图片或视频中！</p>
+		<p>快来生成你专属的风格图片吧！</p> 
+		<!-- <p></p>  With just a few clicks, you can transform ordinary images into stunning works of art.</p> -->
+
+		<div class="separator"></div>
+
+		<h2>Examples</h2>
+		<div>
+			<li>
+				<img src="../static/777.jpg" alt="Example 2" width="350">
+				<img src="../static/1111.jpg" alt="Example 1" width="300">
+				<img src="../static/555.jpg" alt="Example 2" width="300">
+			</li>
+			<li>
+				<img src="../static/777_mosaic.jpg" alt="Example 2" width="350">
+				<img src="../static/1111_sketch.jpg" alt="Example 1" width="300">
+				<img src="../static/555_starryNight.jpg" alt="Example 2" width="300">
+			</li>
+		</div>
+		<div class="separator"></div>
+
+		<h2>How to Use</h2>
+
+		<p>只需以下的操作，便能让大师的艺术风格融入你的图片或视频中：</p>
+		
+		<ul>
+			<li>选择要上传的图像或视频文件。</li>
+			<li>从下拉菜单中选择样式模型。</li>
+			<li>单击"Apply Style" 按钮。 </li>
+			<li>下载转换后的图像或视频。</li>
+		</ul>
+
+		<div class="separator"></div>
+
+		<h2>Style Models</h2>
+
+		<p>我们提供了以下风格样式供您选择:</p>
+
+		<ul>	
+			<li>
+				<strong>Cuphead: </strong><img src="../static/cuphead.jpg" alt="Example 1" width="200">
+				<strong>Church: </strong><img src="../static/church.png" alt="Example 1" width="200">
+				<strong>Starry Night: </strong><img src="../static/starry_night.jpg" alt="Example 1" width="200">
+			</li>
+
+			<li> 
+				<strong>Sketch: </strong><img src="../static/sketch.jpg" alt="Example 1" width="200">
+				<strong>Mosaic: </strong><img src="../static/mosaic.jpg" alt="Example 1" width="200">
+				<strong>Monet: </strong><img src="../static/monet.jpeg" alt="Example 1" width="200">
+			</li>
+			
+		</ul>
+
+		<div class="separator"></div>
+
+		
+
+		<h2>Transform Your Images and Videos Now!</h2>
+
+		<form action="/" method="POST" enctype="multipart/form-data">
+			<p>
+				<label for="image">选择要上传的图像:</label><br>
+				<input type="file" id="image" name="image">
+			</p>
+			<p>
+				<label for="model">选择要转换的风格:</label><br>
+				<select id="model" name="model">
+					<option value="checkpoints/cuphead_10000.pth">Cuphead</option>
+					<option value="checkpoints/mosaic_10000.pth">Mosaic</option>
+					<option value="checkpoints/starry_night_10000.pth" selected>Starry Night</option>
+					<option value="checkpoints/starry_night_28000_vgg16.pth" >Starry Night Advanced</option>
+					<option value="checkpoints/in39_12000.pth">Church</option>
+					<option value="checkpoints/monet_2000.pth">Monet</option>
+					<option value="checkpoints/sketch_2000.pth">Sketch</option>
+
+				</select>
+			</p>
+			<p>
+				<input type="submit" value="Apply Style">
+			</p>
+		</form>
+		<div class="image_transferd">
+			{% if image %}
+				<h2>Styled Image:</h2>
+				<img src="{{ url_for('static', filename=image) }}" alt="Styled Image" width="600">
+			{% endif %}
+		</div>
+		<div class="separator"></div>
+		<!-- <p> </p> -->
+		<h2>Choose an video and a style to apply:</h2>
+		<form action="/" method="POST" enctype="multipart/form-data">
+			<p>
+				<label for="video">选择要上传的视频:</label><br>
+				<input type="file" id="video" name="video" accept=".mp4">
+			</p>
+			<p>
+				<label for="model">选择要转换的风格:</label><br>
+				<select id="model" name="model">
+					<option value="checkpoints/cuphead_10000.pth">Cuphead</option>
+					<option value="checkpoints/mosaic_10000.pth">Mosaic</option>
+					<option value="checkpoints/starry_night_4000.pth" >Starry Night</option>
+					<option value="checkpoints/starry_night_28000_vgg16.pth" selected>Starry Night Advanced</option>
+					<option value="checkpoints/in39_12000.pth">Church</option>
+					<option value="checkpoints/monet_2000.pth">Monet</option>
+					<option value="checkpoints/sketch_2000.pth">Sketch</option>
+				</select>
+			</p>
+			<p>
+				<input type="submit" value="Apply Style">
+			</p>
+		</form>
+		<div class="video_transferd">
+			{% if gif %}
+				<h2>Styled Video:</h2>
+				<img src="{{ url_for('static', filename=gif) }}" alt="Styled Video" width="600">
+			{% endif %}
+			
+		</div>
+		<div class="separator"></div>
+		
+		<h2>用户评价</h2>
+
+		<div class="review">
+			<p>"我很惊讶使用这个工具转换我的照片是多么容易。结果令人惊叹！"</p>
+			<p><em>- John Doe, Photographer</em></p>
+		</div>
+
+		<div class="review">
+			<p>"我喜欢风格模型的创造力。每个人都能找到适合自己的东西！"</p>
+			<p><em>- Jane Smith, Artist</em></p>
+			<div class="separator"></div>
+		</div>
+
+
+		<h2>Share Your Creativity</h2>
+
+		<!-- <p>Don't keep your transformed images and videos to yourself - share them with the world! Use the social media sharing buttons below to post your creations on your favorite platforms.</p> -->
+		
+		<div class="share-buttons">
+			<a href="#" class="gdut-share">Share on Facebook</a>
+			<a href="#" class="weixin-share">Share on Twitter</a>
+			<a href="#" class="weibo-share">Share on Instagram</a>
+		</div>
+	</div>
+</body>
+</html>

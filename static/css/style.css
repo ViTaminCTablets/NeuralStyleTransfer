@@ -1,0 +1,272 @@
+img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+/* 页面布局 */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  body {
+    font-family: 'Open Sans', sans-serif;
+  }
+  
+  h1 {
+    font-weight: bold;
+    font-size: 3em;
+  }
+  
+  p {
+    font-size: 1.2em;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .nav {
+    display: flex;
+    list-style: none;
+  }
+  
+  .hero {
+    background-image: url('images/pixel.jpg');
+    background-size: cover;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* 色彩搭配 */
+  body {
+    background-color: #f4f4f4;
+    color: #333;
+  }
+  
+  .header {
+    background-color: #fff;
+    color: #333;
+  }
+  
+  .nav li {
+    margin-right: 20px;
+  }
+  
+  .button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+  }
+  
+  /* 容易阅读 */
+  body {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  
+  h1, h2, h3 {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+  }
+  
+  p {
+    margin-bottom: 20px;
+  }
+  
+  /* 内容分类 */
+  .section {
+    margin-bottom: 40px;
+  }
+  
+  .section-header {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px 5px 0 0;
+  }
+  
+  .section-body {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 0 0 5px 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  /* 可交互性 */
+  .button {
+    transition: background-color 0.3s ease;
+  }
+  
+  .button:hover {
+    background-color: #0066cc;
+    color: #fff;
+  }
+  
+  .hero-text {
+    animation-name: fade-in;
+    animation-duration: 2s;
+  }
+  
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  /* 渐进式加载 */
+  .section-header, .section-body {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  
+  .section-header.loaded, .section-body.loaded {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.3s ease;
+  }
+
+  body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    
+
+  }
+
+  body::before {
+    content: "";
+    background-image:url(./images/777.webp);
+    background-size: cover;
+    position: absolute;
+    background-color:#CCCCCC;
+    opacity: 0.2;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;  
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;  
+    z-index: -1;
+  }
+
+  .gdut-share {
+    background: url('images/gdut.png') no-repeat;
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    text-indent: -9999px;
+    background-size: 50%;
+  }
+  
+  .weixin-share {
+    background: url('images/weixin.png') no-repeat;
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    text-indent: -9999px;
+    background-size: 50%;
+  }
+  
+  .weibo-share {
+    background: url('images/weibo.png') no-repeat;
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    text-indent: -9999px;
+    background-size: 50%;
+  }
+  .gdut-share:hover {
+    transform: scale(1.2);
+    filter: grayscale(100%);
+  }
+  
+  .weixin-share:hover {
+    transform: scale(1.2);
+    filter: grayscale(100%);
+  }
+  
+  .weibo-share:hover {
+    transform: scale(1.2);
+    filter: grayscale(100%);
+  }
+
+  .facebook-share {
+    background: url('images/facebook.png') no-repeat;
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    text-indent: -9999px;
+    background-size: 50%;
+  }
+  
+  .twitter-share {
+    background: url('images/twitter.png') no-repeat;
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    text-indent: -9999px;
+    background-size: 50%;
+  }
+  
+  .instagram-share {
+    background: url('images/instagram.png') no-repeat;
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    text-indent: -9999px;
+    background-size: 50%;
+  }
+  .facebook-share:hover {
+    transform: scale(1.2);
+    filter: grayscale(100%);
+  }
+  
+  .twitter-share:hover {
+    transform: scale(1.2);
+    filter: grayscale(100%);
+  }
+  
+  .instagram-share:hover {
+    transform: scale(1.2);
+    filter: grayscale(100%);
+  }
+
+  .share-buttons {
+    position: relative; /* 确保子元素相对于父元素进行定位 */
+  }
+  .review {
+    position: relative; /* 确保子元素相对于父元素进行定位 */
+  }
+  .image_transferd {
+    position: relative; /* 确保子元素相对于父元素进行定位 */
+  }
+  .video_transferd {
+    position: relative; /* 确保子元素相对于父元素进行定位 */
+  }
+  .separator {
+    position: relative;
+    bottom: 0; /* 将分界线放置在父元素的底部 */
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-image: linear-gradient(to right, #FFFF00, #FF0000); /* 定义水平渐变 */
+  }
